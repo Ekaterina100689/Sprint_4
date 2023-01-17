@@ -1,18 +1,13 @@
-import static org.junit.Assert.*;
-
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import static org.junit.Assert.*;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class HomePageTest {
+import static org.junit.Assert.assertTrue;
+
+public class HomePageMakeOrderTest {
     private WebDriver driver;
 
     @Before
@@ -23,13 +18,7 @@ public class HomePageTest {
     }
 
     @Test
-    public void faqAreaCheck() {
-        HomePage page = new HomePage(driver);
-        assertTrue(page.faqAreaCheck());
-    }
-
-    @Test
-    public void makeOrderWithFirstButton() {
+    public void makeOrder() {
         String[][] data = new String[][]{
                 {"Петя", "Иванов", "Москва", "Черкизовская", "+79259999999", "10.02.2023"},
                 {"Коля", "Петров", "Москва", "Крымская", "+79257777777", "11.02.2023"},

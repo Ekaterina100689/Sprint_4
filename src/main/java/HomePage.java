@@ -38,12 +38,16 @@ public class HomePage {
 
     private boolean checkAllFaqTextExpand() {
         List<WebElement> elements = driver.findElements(faqCutText);
-        for (WebElement cutBlock: elements) {
-            if (cutBlock.getText() == null) {
+        if (elements.size() != 8) {
+            return false;
+        }
+        for (int i = 0; i < 8; ++i) {
+            String cutText = elements.get(i).getText();
+            if (cutText == null || !cutText.contains(FaqAreaConstants.FAQ_AREA_UNDER_CUT_ELEMENTS[i])) {
                 return false;
             }
         }
-        return elements.size() == 8;
+        return true;
     }
 
     public boolean faqAreaCheck() {
